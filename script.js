@@ -3,10 +3,48 @@ const navbar = document.getElementById("navbar")
 const navToggle = document.getElementById("nav-toggle")
 const navMenu = document.getElementById("nav-menu")
 const themeToggle = document.getElementById("theme-toggle")
+<<<<<<< HEAD
+=======
+const contactForm = document.getElementById("contact-form")
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 const projectModal = document.getElementById("project-modal")
 const modalClose = document.querySelector(".modal-close")
 const downloadCvBtn = document.getElementById("download-cv")
 
+<<<<<<< HEAD
+=======
+// Debug function untuk memastikan tab functionality bekerja
+function debugTabFunctionality() {
+  console.log("=== DEBUG TAB FUNCTIONALITY ===")
+
+  const tabButtons = document.querySelectorAll(".skills-tabs .tab-button")
+  const tabContents = document.querySelectorAll(".skills-content .tab-content")
+
+  console.log("Found tab buttons:", tabButtons.length)
+  tabButtons.forEach((btn, i) => {
+    console.log(`Button ${i}:`, btn.getAttribute("data-tab"), btn.textContent.trim())
+  })
+
+  console.log("Found tab contents:", tabContents.length)
+  tabContents.forEach((content, i) => {
+    console.log(`Content ${i}:`, content.id)
+  })
+
+  // Test click functionality
+  tabButtons.forEach((btn, i) => {
+    btn.style.border = "2px solid red" // Visual indicator
+    setTimeout(() => {
+      btn.style.border = "none"
+    }, 2000)
+  })
+}
+
+// Panggil debug function setelah DOM loaded
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(debugTabFunctionality, 1000)
+})
+
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 // Navigation functionality
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("active")
@@ -21,6 +59,7 @@ document.querySelectorAll(".nav-link").forEach((link) => {
   })
 })
 
+<<<<<<< HEAD
 // Dark theme functionality
 function getCurrentTheme() {
   return localStorage.getItem("theme") || "light"
@@ -72,6 +111,36 @@ themeToggle.addEventListener("click", () => {
 
 // Update navbar on scroll
 window.addEventListener("scroll", applyNavbarStyle)
+=======
+// Navbar scroll effect
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    navbar.style.background = "rgba(255, 255, 255, 0.98)"
+    navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)"
+  } else {
+    navbar.style.background = "rgba(255, 255, 255, 0.95)"
+    navbar.style.boxShadow = "none"
+  }
+})
+
+// Dark theme functionality
+const currentTheme = localStorage.getItem("theme") || "light"
+document.documentElement.setAttribute("data-theme", currentTheme)
+
+if (currentTheme === "dark") {
+  themeToggle.innerHTML = '<i class="fas fa-sun"></i>'
+}
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme")
+  const newTheme = currentTheme === "dark" ? "light" : "dark"
+
+  document.documentElement.setAttribute("data-theme", newTheme)
+  localStorage.setItem("theme", newTheme)
+
+  themeToggle.innerHTML = newTheme === "dark" ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'
+})
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -175,6 +244,7 @@ if (skillsSection) {
 const projectData = {
   kampoengku: {
     title: "KampoengKu App",
+<<<<<<< HEAD
     image: "/images/kampoengku.png",
     overview: {
       description:
@@ -187,11 +257,25 @@ const projectData = {
       challenges: [
         " Limited digital access and user engagement with public service platforms in Surabaya, coupled with unintuitive user interfaces."
       ],  
+=======
+    icon: "fas fa-mobile-alt",
+    overview: {
+      description:
+        "A comprehensive UI/UX design project for a mobile application focused on community engagement and local business promotion. The design emphasizes user-friendly navigation and modern aesthetics.",
+      technologies: ["UI/UX Design", "Figma", "Mobile Design", "Prototyping"],
+      role: "UI/UX Designer",
+      duration: "3 months",
+    },
+    details: {
+      challenge:
+        "Creating an intuitive mobile experience that connects local communities with businesses while maintaining cultural authenticity.",
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
       solution:
         "Developed a user-centered design approach with extensive user research, wireframing, and iterative prototyping.",
       features: [
         "Modern and intuitive user interface",
         "Community engagement features",
+<<<<<<< HEAD
         "User personas and empathy maps from surveys and interviews",
         "High-fidelity prototype using Figma",
         "Usability testing via Maze with iterative improvements",
@@ -204,6 +288,21 @@ const projectData = {
   "fastkantin-web": {
     title: "Fast Kantin Web App",
     image: "/images/fastkantinweb.png",
+=======
+        "Local business directory",
+        "Interactive prototypes",
+        "Responsive design principles",
+        "Cultural design elements",
+      ],
+      outcomes:
+        "Successfully delivered a complete design system with high-fidelity prototypes that received positive feedback from stakeholders.",
+    },
+    link: "https://drive.google.com/your-link-here",
+  },
+  "fastkantin-web": {
+    title: "Fast Kantin Web App",
+    icon: "fas fa-globe",
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     overview: {
       description:
         "A comprehensive food ordering system built with Laravel and Tailwind CSS, designed for efficient canteen management with modern web technologies.",
@@ -212,6 +311,7 @@ const projectData = {
       duration: "4 months",
     },
     details: {
+<<<<<<< HEAD
       challenges: [
         "Inefficient manual ordering system at the campus canteen, causing delays and poor service during peak times.",
         "Building a scalable web application that handles multiple user roles, real-time orders, and payment processing.",
@@ -219,6 +319,12 @@ const projectData = {
       ],
       solution:
         "Built a web-based application with multi-role user login (seller, buyer), integrated CRUD operations, and secure database connection.",
+=======
+      challenge:
+        "Building a scalable web application that handles multiple user roles, real-time orders, and payment processing.",
+      solution:
+        "Implemented a robust Laravel backend with clean architecture, integrated with modern frontend technologies.",
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
       features: [
         "User authentication and authorization",
         "Menu management system",
@@ -228,6 +334,7 @@ const projectData = {
         "Responsive design",
         "Real-time notifications",
       ],
+<<<<<<< HEAD
       outcomes: "Improved canteen operational efficiency and provided an accessible platform for students, staff, and lecturers to order food online.",
     },
     link: "https://github.com/andinnnputrii/FastKantin2-master",
@@ -235,10 +342,20 @@ const projectData = {
   "fastkantin-mobile": {
     title: "Fast Kantin Mobile App",
     image: "/images/mobilefastkantin.png",
+=======
+      outcomes: "Deployed successfully with 99% uptime, handling 500+ daily orders with positive user feedback.",
+    },
+    link: "#",
+  },
+  "fastkantin-mobile": {
+    title: "Fast Kantin Mobile App",
+    icon: "fab fa-android",
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     overview: {
       description:
         "Android application developed with Kotlin using MVVM architecture and Room database for local data management, providing seamless mobile experience.",
       technologies: ["Kotlin", "MVVM Architecture", "Room Database", "Android SDK"],
+<<<<<<< HEAD
       role: "Front End and Back End",
       duration: "5 months",
     },
@@ -282,6 +399,28 @@ const projectData = {
     },
     link: "https://github.com/andinnnputrii/LaundryKu-Desktop",
   }
+=======
+      role: "Android Developer",
+      duration: "5 months",
+    },
+    details: {
+      challenge:
+        "Creating a native Android app with offline capabilities and smooth performance across different device specifications.",
+      solution: "Utilized modern Android development practices with MVVM architecture and local database caching.",
+      features: [
+        "Native Android development",
+        "MVVM architectural pattern",
+        "Local data persistence with Room",
+        "Material Design components",
+        "Offline functionality",
+        "Push notifications",
+        "Biometric authentication",
+      ],
+      outcomes: "Successfully launched on Google Play Store with 4.5+ star rating and 1000+ downloads.",
+    },
+    link: "#",
+  },
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 }
 
 // Project card click handlers
@@ -304,7 +443,11 @@ function showProjectModal(projectId) {
 
   // Set title and image
   modalTitle.textContent = project.title
+<<<<<<< HEAD
   modalProjectImage.innerHTML = `<img src="${project.image}" alt="${project.title} Image" />`
+=======
+  modalProjectImage.innerHTML = `<i class="${project.icon}"></i>`
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 
   // Overview tab content
   overviewContent.innerHTML = `
@@ -313,6 +456,7 @@ function showProjectModal(projectId) {
     </div>
     
     <div class="modal-section">
+<<<<<<< HEAD
       <h3>Technologies / Tools Used</h3>
       <div class="modal-tech-tags">
         ${project.overview.technologies
@@ -322,6 +466,17 @@ function showProjectModal(projectId) {
         `,
       )
       .join("")}
+=======
+      <h3>Technologies Used</h3>
+      <div class="modal-tech-tags">
+        ${project.overview.technologies
+          .map(
+            (tech) => `
+          <span class="modal-tech-tag">${tech}</span>
+        `,
+          )
+          .join("")}
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
       </div>
     </div>
     
@@ -338,14 +493,24 @@ function showProjectModal(projectId) {
       </div>
     </div>
     
+<<<<<<< HEAD
     ${project.link !== "#"
       ? `
+=======
+    ${
+      project.link !== "#"
+        ? `
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
       <a href="${project.link}" target="_blank" class="modal-project-link">
         <i class="fas fa-external-link-alt"></i>
         View Project
       </a>
     `
+<<<<<<< HEAD
       : ""
+=======
+        : ""
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     }
   `
 
@@ -353,10 +518,14 @@ function showProjectModal(projectId) {
   detailsContent.innerHTML = `
     <div class="modal-section">
       <h3>Challenge</h3>
+<<<<<<< HEAD
       ${project.details.challenges.length > 1
       ? `<ul>${project.details.challenges.map((challenge) => `<li>${challenge}</li>`).join("")}</ul>`
       : `<p>${project.details.challenges[0]}</p>`
     }
+=======
+      <p>${project.details.challenge}</p>
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     </div>
     
     <div class="modal-section">
@@ -407,6 +576,7 @@ document.addEventListener("keydown", (e) => {
   }
 })
 
+<<<<<<< HEAD
 // Download CV functionality
 downloadCvBtn.addEventListener("click", (e) => {
   e.preventDefault()
@@ -427,6 +597,37 @@ downloadCvBtn.addEventListener("click", (e) => {
     .catch(() => {
       alert("CV download failed or not available. Please contact me directly.")
     })
+=======
+// Contact form functionality
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+
+  const formData = new FormData(contactForm)
+  const name = formData.get("name")
+  const email = formData.get("email")
+  const subject = formData.get("subject")
+  const message = formData.get("message")
+
+  // Simulate form submission
+  const submitBtn = contactForm.querySelector('button[type="submit"]')
+  const originalText = submitBtn.textContent
+
+  submitBtn.textContent = "Sending..."
+  submitBtn.disabled = true
+
+  setTimeout(() => {
+    alert("Thank you for your message! I'll get back to you soon.")
+    contactForm.reset()
+    submitBtn.textContent = originalText
+    submitBtn.disabled = false
+  }, 2000)
+})
+
+// Download CV functionality
+downloadCvBtn.addEventListener("click", (e) => {
+  e.preventDefault()
+  alert("CV download will be available soon. Please contact me directly for now.")
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 })
 
 // Typing animation for hero text
@@ -496,6 +697,11 @@ document.head.appendChild(style)
 
 // Initialize all animations and interactions
 document.addEventListener("DOMContentLoaded", () => {
+<<<<<<< HEAD
+=======
+  console.log("Portfolio website loaded successfully!")
+
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
   // Add loading animation
   const body = document.body
   body.style.opacity = "0"
@@ -706,12 +912,28 @@ rippleStyle.textContent = `
 `
 document.head.appendChild(rippleStyle)
 
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
   const tabButtons = document.querySelectorAll(".skills-tabs .tab-button")
   const tabContents = document.querySelectorAll(".skills-content .tab-content")
 
   // Tab switching function
   function switchTab(targetTab) {
+=======
+// Skills Tab Functionality - FIXED VERSION
+document.addEventListener("DOMContentLoaded", () => {
+  // Pastikan semua elemen ada sebelum menambahkan event listeners
+  const tabButtons = document.querySelectorAll(".skills-tabs .tab-button")
+  const tabContents = document.querySelectorAll(".skills-content .tab-content")
+
+  console.log("Tab buttons found:", tabButtons.length)
+  console.log("Tab contents found:", tabContents.length)
+
+  // Tab switching function
+  function switchTab(targetTab) {
+    console.log("Switching to tab:", targetTab)
+
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     // Remove active class from all buttons and contents
     tabButtons.forEach((btn) => {
       btn.classList.remove("active")
@@ -724,6 +946,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeButton = document.querySelector(`.skills-tabs [data-tab="${targetTab}"]`)
     const activeContent = document.querySelector(`.skills-content #${targetTab}`)
 
+<<<<<<< HEAD
+=======
+    console.log("Active button:", activeButton)
+    console.log("Active content:", activeContent)
+
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     if (activeButton && activeContent) {
       activeButton.classList.add("active")
       activeContent.classList.add("active")
@@ -743,11 +971,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add click event listeners to tab buttons
   tabButtons.forEach((button, index) => {
+<<<<<<< HEAD
+=======
+    console.log(`Adding listener to button ${index}:`, button.getAttribute("data-tab"))
+
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
     button.addEventListener("click", (e) => {
       e.preventDefault()
       e.stopPropagation()
 
       const targetTab = button.getAttribute("data-tab")
+<<<<<<< HEAD
+=======
+      console.log("Button clicked:", targetTab)
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
       switchTab(targetTab)
     })
 
@@ -960,6 +1197,10 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
+<<<<<<< HEAD
+=======
+// Tambahkan fallback event listener yang lebih robust
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 window.addEventListener("load", () => {
   // Fallback untuk memastikan tab buttons bekerja
   const fallbackTabSetup = () => {
@@ -979,6 +1220,10 @@ window.addEventListener("load", () => {
         e.stopPropagation()
 
         const targetTab = this.getAttribute("data-tab")
+<<<<<<< HEAD
+=======
+        console.log("Fallback click handler - Target tab:", targetTab)
+>>>>>>> e7e010bc748e50c89659b609ee46305373d41ca1
 
         // Remove active from all
         newButtons.forEach((btn) => btn.classList.remove("active"))
